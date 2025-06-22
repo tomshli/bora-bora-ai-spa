@@ -8,8 +8,9 @@
 
 a.title {
   display: flex;
-  color: white;
+  color: black;
   align-items: center;
+  text-decoration: none;
 }
 
 .logo {
