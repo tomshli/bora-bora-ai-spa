@@ -1,0 +1,22 @@
+<div class="app-container">
+  <mat-toolbar color="primary">
+    <a class="title" href="/">
+      <img class="logo" src="assets/BoraBoraAI-Logo.svg" alt="Logo" height="48px">
+      {{ title }}
+    </a>
+    <div class="toolbar-spacer"></div>
+    <a mat-button [routerLink]="['guarded']">Guarded Component</a>
+    <button mat-raised-button *ngIf="!loginDisplay" (click)="login()">Login</button>
+    <button mat-raised-button color="accent" *ngIf="loginDisplay" (click)="logout()">Logout</button>
+  </mat-toolbar>
+  <div class="container">
+    <!--This is to avoid reload during acquireTokenSilent() because of hidden iframe -->
+    <router-outlet *ngIf="!isIframe"></router-outlet>
+  </div>
+</div>
+<footer *ngIf="loginDisplay">
+  <mat-toolbar>
+    <div class="footer-text"> © {{ year }} Bora Bora AI  <a href=""> Contact us</a>
+    </div>
+  </mat-toolbar>
+</footer>

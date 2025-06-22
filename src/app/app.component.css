@@ -1,0 +1,29 @@
+.app-container {
+  flex: 1;
+}
+
+.toolbar-spacer {
+  flex: 1 1 auto;
+}
+
+a.title {
+  display: flex;
+  color: white;
+  align-items: center;
+}
+
+.logo {
+  margin-right: 10px;
+}
+
+footer {
+  width: 100%;
+  color: white;
+  text-align: center;
+}
+
+.footer-text {
+  font-size: small;
+  text-align: center;
+  flex: 1 1 auto;
+}
