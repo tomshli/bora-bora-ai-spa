@@ -1,0 +1,762 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "ApiGateway | v1",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/txt2img": {
+      "post": {
+        "tags": [
+          "Default"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StableDiffusionProcessingTxt2Img"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StableDiffusionProcessingTxt2Img"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/StableDiffusionProcessingTxt2Img"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/TextToImageResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TextToImageResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TextToImageResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/img2img": {
+      "post": {
+        "tags": [
+          "Default"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StableDiffusionProcessingImg2Img"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StableDiffusionProcessingImg2Img"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/StableDiffusionProcessingImg2Img"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ImageToImageResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ImageToImageResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ImageToImageResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ImageToImageResponse": {
+        "type": "object",
+        "properties": {
+          "additionalData": {
+            "type": "object",
+            "nullable": true
+          },
+          "images": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "info": {
+            "type": "string",
+            "nullable": true
+          },
+          "parameters": {
+            "$ref": "#/components/schemas/ImageToImageResponse_parameters"
+          }
+        }
+      },
+      "ImageToImageResponse_parameters": {
+        "type": "object",
+        "properties": {
+          "additionalData": {
+            "type": "object",
+            "nullable": true
+          }
+        },
+        "nullable": true
+      },
+      "StableDiffusionProcessingImg2Img": {
+        "type": "object",
+        "properties": {
+          "additionalData": {
+            "type": "object",
+            "nullable": true
+          },
+          "alwaysonScripts": {
+            "$ref": "#/components/schemas/StableDiffusionProcessingImg2Img_alwayson_scripts"
+          },
+          "batchSize": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "cfgScale": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "comments": {
+            "$ref": "#/components/schemas/StableDiffusionProcessingImg2Img_comments"
+          },
+          "denoisingStrength": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "disableExtraNetworks": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "doNotSaveGrid": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "doNotSaveSamples": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "eta": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "firstpassImage": {
+            "type": "string",
+            "nullable": true
+          },
+          "forceTaskId": {
+            "type": "string",
+            "nullable": true
+          },
+          "height": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "imageCfgScale": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "includeInitImages": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "infotext": {
+            "type": "string",
+            "nullable": true
+          },
+          "initialNoiseMultiplier": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "initImages": {
+            "$ref": "#/components/schemas/UntypedNode"
+          },
+          "inpaintFullRes": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "inpaintFullResPadding": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "inpaintingFill": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "inpaintingMaskInvert": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "latentMask": {
+            "type": "string",
+            "nullable": true
+          },
+          "mask": {
+            "type": "string",
+            "nullable": true
+          },
+          "maskBlur": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "maskBlurX": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "maskBlurY": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "maskRound": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "negativePrompt": {
+            "type": "string",
+            "nullable": true
+          },
+          "nIter": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "overrideSettings": {
+            "$ref": "#/components/schemas/StableDiffusionProcessingImg2Img_override_settings"
+          },
+          "overrideSettingsRestoreAfterwards": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "prompt": {
+            "type": "string",
+            "nullable": true
+          },
+          "refinerCheckpoint": {
+            "type": "string",
+            "nullable": true
+          },
+          "refinerSwitchAt": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "resizeMode": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "restoreFaces": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "samplerIndex": {
+            "type": "string",
+            "nullable": true
+          },
+          "samplerName": {
+            "type": "string",
+            "nullable": true
+          },
+          "saveImages": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "scheduler": {
+            "type": "string",
+            "nullable": true
+          },
+          "sChurn": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "scriptArgs": {
+            "$ref": "#/components/schemas/UntypedNode"
+          },
+          "scriptName": {
+            "type": "string",
+            "nullable": true
+          },
+          "seed": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "seedResizeFromH": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "seedResizeFromW": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "sendImages": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "sMinUncond": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "sNoise": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "steps": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "sTmax": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "sTmin": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "styles": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "subseed": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "subseedStrength": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "tiling": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "width": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        }
+      },
+      "StableDiffusionProcessingImg2Img_alwayson_scripts": {
+        "type": "object",
+        "properties": {
+          "additionalData": {
+            "type": "object",
+            "nullable": true
+          }
+        },
+        "nullable": true
+      },
+      "StableDiffusionProcessingImg2Img_comments": {
+        "type": "object",
+        "properties": {
+          "additionalData": {
+            "type": "object",
+            "nullable": true
+          }
+        },
+        "nullable": true
+      },
+      "StableDiffusionProcessingImg2Img_override_settings": {
+        "type": "object",
+        "properties": {
+          "additionalData": {
+            "type": "object",
+            "nullable": true
+          }
+        },
+        "nullable": true
+      },
+      "StableDiffusionProcessingTxt2Img": {
+        "type": "object",
+        "properties": {
+          "additionalData": {
+            "type": "object",
+            "nullable": true
+          },
+          "alwaysonScripts": {
+            "$ref": "#/components/schemas/StableDiffusionProcessingTxt2Img_alwayson_scripts"
+          },
+          "batchSize": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "cfgScale": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "comments": {
+            "$ref": "#/components/schemas/StableDiffusionProcessingTxt2Img_comments"
+          },
+          "denoisingStrength": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "disableExtraNetworks": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "doNotSaveGrid": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "doNotSaveSamples": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "enableHr": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "eta": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "firstpassImage": {
+            "type": "string",
+            "nullable": true
+          },
+          "firstphaseHeight": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "firstphaseWidth": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "forceTaskId": {
+            "type": "string",
+            "nullable": true
+          },
+          "height": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "hrCheckpointName": {
+            "type": "string",
+            "nullable": true
+          },
+          "hrNegativePrompt": {
+            "type": "string",
+            "nullable": true
+          },
+          "hrPrompt": {
+            "type": "string",
+            "nullable": true
+          },
+          "hrResizeX": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "hrResizeY": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "hrSamplerName": {
+            "type": "string",
+            "nullable": true
+          },
+          "hrScale": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "hrScheduler": {
+            "type": "string",
+            "nullable": true
+          },
+          "hrSecondPassSteps": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "hrUpscaler": {
+            "type": "string",
+            "nullable": true
+          },
+          "infotext": {
+            "type": "string",
+            "nullable": true
+          },
+          "negativePrompt": {
+            "type": "string",
+            "nullable": true
+          },
+          "nIter": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "overrideSettings": {
+            "$ref": "#/components/schemas/StableDiffusionProcessingTxt2Img_override_settings"
+          },
+          "overrideSettingsRestoreAfterwards": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "prompt": {
+            "type": "string",
+            "nullable": true
+          },
+          "refinerCheckpoint": {
+            "type": "string",
+            "nullable": true
+          },
+          "refinerSwitchAt": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "restoreFaces": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "samplerIndex": {
+            "type": "string",
+            "nullable": true
+          },
+          "samplerName": {
+            "type": "string",
+            "nullable": true
+          },
+          "saveImages": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "scheduler": {
+            "type": "string",
+            "nullable": true
+          },
+          "sChurn": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "scriptArgs": {
+            "$ref": "#/components/schemas/UntypedNode"
+          },
+          "scriptName": {
+            "type": "string",
+            "nullable": true
+          },
+          "seed": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "seedResizeFromH": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "seedResizeFromW": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "sendImages": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "sMinUncond": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "sNoise": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "steps": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "sTmax": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "sTmin": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "styles": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "subseed": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "subseedStrength": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "tiling": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "width": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        }
+      },
+      "StableDiffusionProcessingTxt2Img_alwayson_scripts": {
+        "type": "object",
+        "properties": {
+          "additionalData": {
+            "type": "object",
+            "nullable": true
+          }
+        },
+        "nullable": true
+      },
+      "StableDiffusionProcessingTxt2Img_comments": {
+        "type": "object",
+        "properties": {
+          "additionalData": {
+            "type": "object",
+            "nullable": true
+          }
+        },
+        "nullable": true
+      },
+      "StableDiffusionProcessingTxt2Img_override_settings": {
+        "type": "object",
+        "properties": {
+          "additionalData": {
+            "type": "object",
+            "nullable": true
+          }
+        },
+        "nullable": true
+      },
+      "TextToImageResponse": {
+        "type": "object",
+        "properties": {
+          "additionalData": {
+            "type": "object",
+            "nullable": true
+          },
+          "images": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "info": {
+            "type": "string",
+            "nullable": true
+          },
+          "parameters": {
+            "$ref": "#/components/schemas/TextToImageResponse_parameters"
+          }
+        }
+      },
+      "TextToImageResponse_parameters": {
+        "type": "object",
+        "properties": {
+          "additionalData": {
+            "type": "object",
+            "nullable": true
+          }
+        },
+        "nullable": true
+      },
+      "UntypedNode": {
+        "type": "object",
+        "nullable": true
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Default"
+    }
+  ]
+}
