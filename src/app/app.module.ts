@@ -1,4 +1,4 @@
-import { APP_INITIALIZER, NgModule } from '@angular/core';
+import { NgModule, provideAppInitializer } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
@@ -93,10 +93,7 @@ export function MSALInterceptorConfigFactory(): MsalInterceptorConfiguration {
     MsalModule,
   ],
   providers: [
-    { provide: APP_INITIALIZER,
-      useValue: initializerFactory,
-      multi: true 
-    },
+    provideAppInitializer(initializerFactory),
     {
       provide: HTTP_INTERCEPTORS,
       useClass: MsalInterceptor,

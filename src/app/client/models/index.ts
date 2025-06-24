@@ -221,15 +221,6 @@ export function createTextToImageResponseFromDiscriminatorValue(parseNode: Parse
     return deserializeIntoTextToImageResponse;
 }
 /**
- * Creates a new instance of the appropriate class based on discriminator value
- * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {UntypedNode}
- */
-// @ts-ignore
-export function createUntypedNodeFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoUntypedNode;
-}
-/**
  * The deserialization information for the current model
  * @returns {Record<string, (node: ParseNode) => void>}
  */
@@ -1005,7 +996,7 @@ export function serializeTextToImageResponse_parameters_additionalData(writer: S
 // @ts-ignore
 export function serializeUntypedNode(writer: SerializationWriter, untypedNode: Partial<UntypedNode> | undefined | null = {}) : void {
     if (untypedNode) {
-        writer.writeAdditionalData(untypedNode.additionalData);
+        //writer.writeAdditionalData(untypedNode.additionalData);
     }
 }
 export interface StableDiffusionProcessingImg2Img extends AdditionalDataHolder, Parsable {

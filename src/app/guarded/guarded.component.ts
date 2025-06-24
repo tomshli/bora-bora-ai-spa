@@ -4,9 +4,10 @@ import { FetchRequestAdapter } from "@microsoft/kiota-http-fetchlibrary";
 import { createApiGatewayClient } from "../client/apiGatewayClient.js";
 
 @Component({
-  selector: 'app-guarded',
-  templateUrl: './guarded.component.html',
-  styleUrls: ['./guarded.component.css']
+    selector: 'app-guarded',
+    templateUrl: './guarded.component.html',
+    styleUrls: ['./guarded.component.css'],
+    standalone: false
 })
 export class GuardedComponent implements OnInit {
   imgBase64: string | undefined;
